@@ -10,7 +10,7 @@ import com.in28minutes.rest.webservices.restfulwebservices.model.PersonV2;
 @RestController
 public class PersonVersionController {
 
-	//uri versioning
+	// uri versioning
 	@GetMapping("/v1/person")
 	public PersonV1 personV1() {
 		return new PersonV1("Bob Charlie");
@@ -21,7 +21,7 @@ public class PersonVersionController {
 		return new PersonV2(new Name("Bob", "Charlie"));
 	}
 	
-	//request param versioning
+	// request param versioning
 	@GetMapping(value = "/person/param", params="version=1")
 	public PersonV1 paramV1() {
 		return new PersonV1("Bob Charlie");
@@ -32,7 +32,7 @@ public class PersonVersionController {
 		return new PersonV2(new Name("Bob", "Charlie"));
 	}
 	
-	//header versioning
+	// header versioning
 	@GetMapping(value = "/person/header", headers="X-API-VERSION=1")
 	public PersonV1 headerV1() {
 		return new PersonV1("Bob Charlie");
