@@ -12,7 +12,7 @@ import com.in28minutes.rest.webservices.restfulwebservices.model.User;
 @Component
 public class UserDaoService {
 
-	private static List<User> users = new ArrayList();
+	private static List<User> users = new ArrayList<User>();
 	private static int usersCount = 3;
 
 	static {
