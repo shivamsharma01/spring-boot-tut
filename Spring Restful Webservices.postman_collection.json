@@ -1,0 +1,837 @@
+{
+	"info": {
+		"_postman_id": "a23fb06b-0f14-41d3-9b13-2193f31093d8",
+		"name": "Spring Restful Webservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HelloWorld",
+			"item": [
+				{
+					"name": "Hello - Get Mapping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hello-world",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hello-world"
+							]
+						},
+						"description": "\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Hello -internationalized",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hello-world-internationalized",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hello-world-internationalized"
+							]
+						},
+						"description": "\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Hello - Get Mapping Bean",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hello-world-bean",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hello-world-bean"
+							]
+						},
+						"description": "\t"
+					},
+					"response": []
+				},
+				{
+					"name": "Hello - Get Mapping Path variable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hello-with-path/shivam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hello-with-path",
+								"shivam"
+							]
+						},
+						"description": "\t"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "retrieveUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"Jaja\",\r\n    \"birthDate\": \"2020-01-02T20:58:09.565+0000\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "passwor",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User JPA",
+			"item": [
+				{
+					"name": "retrieveUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{port}}/{{context}}/users/2",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"{{context}}",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{port}}/{{context}}/users/2",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"{{context}}",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"Jaja\",\r\n    \"birthDate\": \"2020-01-02T20:58:09.565+0000\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}{{port}}/{{context}}/users",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"{{context}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve All",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "passwor",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{port}}/{{context}}/users",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"{{context}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{port}}/{{context}}/users/10001/posts",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"{{context}}",
+								"users",
+								"10001",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"My Third Post\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}{{port}}/{{context}}/users/10001/posts",
+							"host": [
+								"{{host}}{{port}}"
+							],
+							"path": [
+								"{{context}}",
+								"users",
+								"10001",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "swagger",
+			"item": [
+				{
+					"name": "Swagger api-docs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v2/api-docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger - ui",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/swagger-ui.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"swagger-ui.html"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Actuator",
+			"item": [
+				{
+					"name": "Actuator main",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator - info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator - health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HAL Browser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/browser/index.html#/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"browser",
+								"index.html"
+							],
+							"hash": "/"
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filtering",
+			"item": [
+				{
+					"name": "get filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filtering",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filtering"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get filtering filtering-dynamic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filtering-dynamic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filtering-dynamic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get filtering filtering-dynamic list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filtering-list-dynamic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filtering-list-dynamic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list filtering",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filtering-list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filtering-list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Personv1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Personv2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v2/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person Param",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/param?version=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"param"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person Header",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-VERSION",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/person/header",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"header"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person produces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.company.app-v2+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/person/produces?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"produces"
+							],
+							"query": [
+								{
+									"key": "Accept",
+									"value": "application/vnd.company.app-v2+json",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "h2 console",
+			"item": [
+				{
+					"name": "h2 console",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/h2-console",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"h2-console"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c73f8196-2dde-4a1c-b05d-1c20d44cc952",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8aaa8759-0380-4b95-8e6e-b917cd0f3378",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8c92afda-a821-427e-9f3c-21afab628714",
+			"key": "host",
+			"value": "http://localhost:",
+			"type": "string"
+		},
+		{
+			"id": "c9af6daf-e217-4f59-8c9b-26ec354e3af4",
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"id": "2b2ec89c-b890-4444-9175-592559596460",
+			"key": "context",
+			"value": "jpa",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
